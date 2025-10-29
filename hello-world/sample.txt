@@ -1,0 +1,1 @@
+hey this is a sample file created using fs_module of nodejs
