@@ -1,2 +1,3 @@
-console.log("checking if precommit hook is even working");
-console.log(__dirname);
+cd testing
+cd todo-cli
+npm test
