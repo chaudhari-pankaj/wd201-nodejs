@@ -1,5 +1,7 @@
+const { todo } = require("node:test");
+
 const todoList = () => {
-  all = []
+  const all = []
   const add = (todoItem) => {
     all.push(todoItem)
   }
@@ -12,7 +14,7 @@ const todoList = () => {
   let today = today_var.toISOString().split("T")[0];
   return all.filter((task) => {
         if(task.dueDate < today && task.completed == false)
-            return task;
+          return true;
     })
     // Write the date check condition here and return the array
     // of overdue items accordingly.
@@ -25,7 +27,7 @@ const todoList = () => {
     let today = today_var.toISOString().split("T")[0];
     return all.filter((task) => {
         if(task.dueDate == today)
-            return task;
+          return true;
     })
   }
 
@@ -36,7 +38,7 @@ const todoList = () => {
     let today = today_var.toISOString().split("T")[0];
     return all.filter((task) => {
         if(task.dueDate > today)
-            return task;
+          return true;
     })
   }
 
