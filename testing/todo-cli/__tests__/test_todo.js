@@ -34,7 +34,7 @@ describe("todo list test suite",() => {
         add({ title: 'File taxes', dueDate: tomorrow, completed: false });
         add({ title: 'Pay electric bill', dueDate: tomorrow, completed: false });
     });
-
+    
     test("testing-add new todo", () => {
         let beforelen = all.length;
         add({
@@ -43,6 +43,12 @@ describe("todo list test suite",() => {
             dueDate : today
         });
         expect(all.length).toBe(beforelen + 1);
+    });
+    test("testing-mark as complete",() => {
+        expect(all[all.length -1].completed).toBe(false);
+        markAsComplete(all.length -1);
+        expect(all[all.length -1].completed).toBe(true);
+        all[all.length -1].completed = false;
     });
     test("testing-retreiving overdue objects",() => {
         let overdue_list = overdue();
@@ -55,10 +61,5 @@ describe("todo list test suite",() => {
     test("testing-retreiving due later objects", () => {
         let overdue_list = dueLater();
         expect(overdue_list).toEqual([{ title: 'File taxes', dueDate: tomorrow, completed: false },{ title: 'Pay electric bill', dueDate: tomorrow, completed: false }]);
-    });
-    test("testing-mark as complete",() => {
-        expect(all[all.length -1].completed).toBe(false);
-        markAsComplete(all.length -1);
-        expect(all[all.length -1].completed).toBe(true);
     });
 });
