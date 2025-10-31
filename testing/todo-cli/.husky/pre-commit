@@ -1,2 +1,2 @@
 console.log("checking if precommit hook is even working");
-npm test
+console.log(__dirname);
